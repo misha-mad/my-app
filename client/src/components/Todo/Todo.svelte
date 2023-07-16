@@ -1,9 +1,9 @@
 <script>
-	import {query, mutation} from 'svelte-apollo'
+	import {mutation, subscribe} from 'svelte-apollo'
 	import {gql} from '@apollo/client/core'
 
 	const GetTodos = gql`
-		query GetTodos {
+		subscription GetTodos {
 			todo {
 				id
 				name
@@ -24,7 +24,7 @@
 		}
 	`
 
-	const todoOp = query(GetTodos)
+	const todoOp = subscribe(GetTodos)
 	const todoAdd = mutation(AddTodo)
 
 	let name = ""
@@ -32,7 +32,6 @@
 		todoAdd({variables: {name}}).then((data) => {
 				console.log(data)
 				name = ""
-				todoOp.refetch()
 			})
 			.catch((error) => {
 				console.error(error)

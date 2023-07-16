@@ -1,0 +1,7 @@
+subscription TodosSubscription {
+  todo {
+    id
+    name
+    isDone
+  }
+}

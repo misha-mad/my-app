@@ -1,39 +1,12 @@
-<script>
-  import {mutation, subscribe} from 'svelte-apollo'
-  import {gql} from '@apollo/client/core'
+<script lang="ts">
+  import {TodosSubscription, AddTodo} from '../../graphql/generated'
 
-  const GetTodos = gql`
-    subscription GetTodos {
-      todo {
-        id
-        name
-        isDone
-      }
-    }
-  `
-
-  const AddTodo = gql`
-    mutation ($name: String!) {
-      insert_todo(objects: {name: $name}) {
-        returning {
-          id
-          name
-          isDone
-        }
-      }
-    }
-  `
-
-  const todoOp = subscribe(GetTodos)
-  const todoAdd = mutation(AddTodo)
-
+  $: todos = TodosSubscription({})
   let name = ''
+
   function addTodo() {
-    todoAdd({variables: {name}})
-      .then((data) => {
-        console.log(data)
-        name = ''
-      })
+    AddTodo({variables: {name}})
+      .then(() => (name = ''))
       .catch((error) => {
         console.error(error)
       })
@@ -48,13 +21,11 @@
     <button type="submit">Submit</button>
   </form>
 
-  {#await $todoOp}
+  {#if !$todos}
     <p>.. loading</p>
-  {:then data}
-    {#each data.data?.todo ?? [] as todo}
+  {:else}
+    {#each $todos?.data?.todo ?? [] as todo}
       <p class:done={todo.isDone}>{todo.name}</p>
     {/each}
-  {:catch error}
-    {error}
-  {/await}
+  {/if}
 </div>

@@ -1,5 +1,5 @@
 <script>
-  import {setClient} from 'svelte-apollo'
+  import {setClient} from '../common/helpers'
   import Todo from '../components/Todo/Todo.svelte'
   import {apolloClient} from '../common/helpers'
 

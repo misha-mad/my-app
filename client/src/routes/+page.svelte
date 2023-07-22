@@ -1,9 +1,9 @@
 <script>
-  import {setClient} from '$lib/common/helpers'
   import Todo from '$lib/components/Todo/Todo.svelte'
   import {apolloClient} from '$lib/common/helpers'
+  import {setContext} from 'svelte'
 
-  setClient(apolloClient)
+  setContext(typeof Symbol !== 'undefined' ? Symbol('client') : '@@client', apolloClient)
 </script>
 
 <div class="centrify">

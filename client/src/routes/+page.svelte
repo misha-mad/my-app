@@ -1,6 +1,6 @@
 <script>
   import {setClient} from '$lib/common/helpers'
-  import Todo from '../components/Todo/Todo.svelte'
+  import Todo from '$lib/components/Todo/Todo.svelte'
   import {apolloClient} from '$lib/common/helpers'
 
   setClient(apolloClient)

@@ -1,0 +1,1 @@
+INSERT INTO "public"."todos"("isDone", "name", "created_at", "updated_at", "id") VALUES (false, E'your first todo!', E'2023-07-22T10:34:31.951779+00:00', E'2023-07-22T10:34:31.951779+00:00', E'e1cfbe90-b548-4b33-9d7a-318d95fe1d5f');

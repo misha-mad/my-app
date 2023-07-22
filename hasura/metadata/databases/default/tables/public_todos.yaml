@@ -1,5 +1,5 @@
 table:
-  name: todo
+  name: todos
   schema: public
 insert_permissions:
   - role: public
@@ -12,18 +12,19 @@ select_permissions:
   - role: public
     permission:
       columns:
-        - isDone
-        - name
         - id
+        - created_at
+        - updated_at
+        - name
+        - isDone
       filter: {}
 update_permissions:
   - role: public
     permission:
       columns:
         - isDone
-        - name
       filter: {}
-      check: {}
+      check: null
 delete_permissions:
   - role: public
     permission:

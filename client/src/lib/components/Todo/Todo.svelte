@@ -24,7 +24,7 @@
   {#if !$todos}
     <p>.. loading</p>
   {:else}
-    {#each $todos?.data?.todo ?? [] as todo}
+    {#each $todos?.data?.todos ?? [] as todo}
       <p class:done={todo.isDone}>{todo.name}</p>
     {/each}
   {/if}

@@ -1,9 +1,7 @@
 mutation AddTodo($name: String!) {
-  insert_todo(objects: {name: $name}) {
-    returning {
-      id
-      name
-      isDone
-    }
+  insert_todos_one(object: {name: $name}) {
+    id
+    name
+    isDone
   }
 }

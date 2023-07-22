@@ -3,7 +3,7 @@
   import {apolloClient} from '$lib/common/helpers'
   import {setContext} from 'svelte'
 
-  setContext('client', apolloClient)
+  setContext(Symbol('client'), apolloClient)
 </script>
 
 <div class="centrify">

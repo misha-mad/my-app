@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import '@unocss/reset/normalize.css'
 	import {apolloClient} from '$lib/common/helpers'
 	import {setContext} from 'svelte'

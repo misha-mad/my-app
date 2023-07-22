@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Todo from '$lib/components/Todo/Todo.svelte'
 </script>
 

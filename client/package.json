@@ -23,9 +23,9 @@
     "graphql": "16.7.1",
     "graphql-request": "6.1.0",
     "graphql-ws": "5.14.0",
-    "svelte": "4.0.5",
+    "svelte": "4.1.1",
     "svelte-check": "3.4.6",
-    "vite": "4.4.4",
+    "vite": "4.4.6",
     "vitest": "0.33.0"
   },
   "devDependencies": {

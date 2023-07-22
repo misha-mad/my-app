@@ -4,7 +4,7 @@ const config: CodegenConfig = {
   schema: './schema.graphql',
   documents: './src/**/*.graphql',
   generates: {
-    './src/graphql/generated.ts': {
+    './src/lib/graphql/generated.ts': {
       plugins: ['typescript', 'typescript-operations', 'graphql-codegen-svelte-apollo'],
       config: {
         clientPath: '../common/helpers/apollo-client',

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import {TodosSubscription, AddTodo} from '../../graphql/generated'
+  import {TodosSubscription, AddTodo} from '$lib/graphql/generated'
 
   $: todos = TodosSubscription({})
   let name = ''

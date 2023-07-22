@@ -7,5 +7,6 @@ node_modules
 .env.production
 .env.local
 !.env.example
+*.tsbuildinfo
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*

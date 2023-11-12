@@ -1,12 +1,12 @@
 <script lang="ts">
-	import '@unocss/reset/normalize.css'
-	import Layout from '$lib/Layout/index.svelte'
-	import {apolloClient} from '$lib/common/helpers'
-	import {setContext} from 'svelte'
+  import '../app.css'
+  import Layout from '$lib/Layout/index.svelte'
+  import {apolloClient} from '$lib/common/helpers'
+  import {setContext} from 'svelte'
 
-	setContext(Symbol('client'), apolloClient)
+  setContext(Symbol('client'), apolloClient)
 </script>
 
 <Layout>
-	<slot />
+  <slot />
 </Layout>

@@ -11,8 +11,8 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "test:unit": "vitest",
-    "lint": "prettier --plugin-search-dir . --check . && eslint .",
-    "format": "prettier --plugin-search-dir . --write .",
+    "lint": "prettier --check ./ && eslint ./",
+    "format": "prettier --write ./",
     "download-schema": "gq http://localhost:8080/v1/graphql -H 'X-Hasura-Admin-Secret:111' --introspect > schema.graphql",
     "generate": "graphql-codegen",
     "typecheck": "tsc"
@@ -36,14 +36,9 @@
     "@graphql-codegen/typescript-operations": "4.0.1",
     "@iconify-json/heroicons": "1.1.11",
     "@iconify-json/svg-spinners": "1.1.1",
-    "@ottofeller/prettier-config-ofmt": "1.7.2",
     "@playwright/test": "1.36.1",
     "@typescript-eslint/eslint-plugin": "6.1.0",
     "@typescript-eslint/parser": "6.1.0",
-    "@unocss/eslint-config": "^0.53.6",
-    "@unocss/postcss": "0.53.6",
-    "@unocss/preset-icons": "0.53.6",
-    "@unocss/svelte-scoped": "0.53.6",
     "eslint": "8.45.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-svelte": "2.32.4",
@@ -52,8 +47,31 @@
     "prettier": "3.0.0",
     "prettier-plugin-svelte": "3.0.0",
     "tslib": "2.6.0",
-    "typescript": "5.1.6",
-    "unocss": "0.53.6"
+    "typescript": "5.1.6"
   },
-  "prettier": "@ottofeller/prettier-config-ofmt"
+  "prettier": {
+    "$schema": "https://json.schemastore.org/prettierrc",
+    "printWidth": 120,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": false,
+    "singleQuote": true,
+    "quoteProps": "as-needed",
+    "trailingComma": "all",
+    "bracketSpacing": false,
+    "bracketSameLine": false,
+    "arrowParens": "always",
+    "rangeStart": 0,
+    "requirePragma": false,
+    "insertPragma": false,
+    "proseWrap": "preserve",
+    "htmlWhitespaceSensitivity": "css",
+    "vueIndentScriptAndStyle": false,
+    "endOfLine": "lf",
+    "embeddedLanguageFormatting": "auto",
+    "singleAttributePerLine": false,
+    "plugins": [
+      "prettier-plugin-svelte"
+    ]
+  }
 }

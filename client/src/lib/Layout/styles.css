@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    @apply scroll-smooth;
+    > body {
+      @apply min-h-screen overflow-y-auto overflow-x-hidden bg-black font-medium text-white antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
+}
+@layer utilities {
+  .scrollbar-hidden {
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      @apply hidden;
+    }
+  }
+
+  /* Smart focus-visible */
+  :not(.outline-none) {
+    &:focus {
+      outline: none;
+      &:focus-visible {
+        outline: revert;
+      }
+    }
+  }
+}

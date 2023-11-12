@@ -1,9 +1,7 @@
 <script lang="ts">
-  import '../app.css'
   import Layout from '$lib/Layout/index.svelte'
   import {apolloClient} from '$lib/common/helpers'
   import {setContext} from 'svelte'
-
   setContext(Symbol('client'), apolloClient)
 </script>
 

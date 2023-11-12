@@ -1,6 +1,5 @@
 <script lang="ts">
   import {TodosSubscription, AddTodo} from '$lib/graphql/generated'
-
   $: todos = TodosSubscription({})
   let name = ''
 
@@ -13,19 +12,22 @@
   }
 </script>
 
-<div style="text-align:center">
-  <h2>Todoer</h2>
+<div class="text-center max-w-xs">
+  <h2 class="text-2xl font-bold mb-5">Todoer</h2>
 
-  <form on:submit|preventDefault={addTodo}>
-    <input placeholder="new todo" bind:value={name} />
-    <button type="submit">Submit</button>
+  <form class="grid gap-y-3 mb-3" on:submit|preventDefault={addTodo}>
+    <input class="text-black p-1" placeholder="new todo" bind:value={name} />
+    <button class="border rounded-md" type="submit">Submit</button>
   </form>
 
   {#if !$todos}
     <p>.. loading</p>
   {:else}
-    {#each $todos?.data?.todos ?? [] as todo}
-      <p class:done={todo.isDone}>{todo.name}</p>
+    {#each $todos?.data?.todos ?? [] as todo, i}
+      <div class="grid grid-flow-col justify-start gap-x-2n">
+        <span>{i + 1}.</span>
+        <p class="text-ellipsis overflow-hidden" class:done={todo.isDone}>{todo.name}</p>
+      </div>
     {/each}
   {/if}
 </div>

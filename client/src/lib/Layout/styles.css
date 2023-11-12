@@ -5,12 +5,32 @@
 @layer base {
   :root {
     @apply scroll-smooth;
+    scrollbar-width: thin;
+    scrollbar-color: slategray black;
+
+    *::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    *::-webkit-scrollbar-track {
+      background: black;
+      border-radius: 5px;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background-color: slategray;
+      border-radius: 14px;
+      border: 3px solid black;
+    }
+
+
     > body {
       @apply min-h-screen overflow-y-auto overflow-x-hidden bg-black font-medium text-white antialiased;
       -webkit-tap-highlight-color: transparent;
     }
   }
 }
+
 @layer utilities {
   .scrollbar-hidden {
     scrollbar-width: none;

@@ -20,14 +20,16 @@
     <button class="border rounded-md" type="submit">Submit</button>
   </form>
 
-  {#if !$todos}
-    <p>.. loading</p>
-  {:else}
-    {#each $todos?.data?.todos ?? [] as todo, i}
-      <div class="grid grid-flow-col justify-start gap-x-2n">
-        <span>{i + 1}.</span>
-        <p class="text-ellipsis overflow-hidden" class:done={todo.isDone}>{todo.name}</p>
-      </div>
-    {/each}
-  {/if}
+  <div class="max-h-60 overflow-y-scroll">
+    {#if !$todos}
+      <p>...loading</p>
+    {:else}
+      {#each $todos?.data?.todos ?? [] as todo, i}
+        <div class="grid grid-flow-col justify-start gap-x-2n">
+          <span>{($todos?.data?.todos.length ?? 0) - i}.</span>
+          <p class="text-ellipsis overflow-hidden" class:done={todo.isDone}>{todo.name}</p>
+        </div>
+      {/each}
+    {/if}
+  </div>
 </div>

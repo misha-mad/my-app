@@ -1,18 +1,26 @@
 <script lang="ts">
+  import {page, navigating} from '$app/stores'
   import logo from './assets/logo.svg'
-  let com = 5
 </script>
 
 <header class="sticky top-0 z-30 backdrop-blur-sm h-[var(--header-height)]">
   <div
-    class="2lg:gap-x-30 2lg:px-20 theme('grid-cols-auto/1fr/auto') bg-color-verycool relative z-10 grid row-span-full col-start-2 items-center px-6 py-4"
+    class="grid grid-flow-col grid-cols-[auto/1fr/auto] z-10 row-span-full col-start-2 items-center px-6 py-4 gap-x-4"
   >
     <a href="/">
-      <img alt="misha_dev" class="h-6 text-white lg:h-10 {com === 0 ? 'mr-1' : 'mr-2'}" src={logo} />
+      <img alt="misha_dev" class="h-6 text-white lg:h-10" src={logo} />
     </a>
 
-    <div>MishaDev</div>
+    <div class="grid grid-flow-col justify-end gap-x-4">
+      <a class="i-heroicons-bars-3-20-solid" href="/about" aria-current={$page.url.pathname === '/about'}> about </a>
 
-    <button class="i-heroicons-bars-3-20-solid h-6 w-6" />
+      <a class="i-heroicons-bars-3-20-solid" href="/experiments" aria-current={$page.url.pathname === '/experiments'}>
+        experiments
+      </a>
+    </div>
   </div>
+
+  {#if $navigating}
+    <p>...navigating to {$navigating.to?.url.pathname}</p>
+  {/if}
 </header>
